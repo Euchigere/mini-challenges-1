@@ -35,29 +35,19 @@ function isValid(str) {
             }
 
             if ((count_i === count_j) && !(count%2 === 0)) {
-                //console.log('invalid1');
                 return 'invalid';
             } else if ((count_i === count_j) && (count%2 === 0)) {
-                //console.log(j)
                 list.splice(j, 1);
-                //console.log(`len ${list.length}`)
                 continue Loop1
             }
         }
 
         if (count_i !== count_j) {
-            //console.log('invalid2');
             return 'invalid';
         }
 
     }
-    //console.log('valid');
     return 'valid';
 }
-
-//let str = "((())(())(())(())";
-
-//isValid(str);
-
 
 module.exports = isValid;

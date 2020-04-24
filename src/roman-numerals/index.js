@@ -22,24 +22,15 @@ function romanToDecimal(roman) {
     while (i < len) {
         value1 = roman[i];
 
-        if ((i + 1) < len) {
-            value2 = roman[i + 1];
-            if ((value1 !== value2) && (['I', 'X', 'C'].includes(value1))) {
-                sum += (dict[value2] > dict[value1])? (dict[value2] - dict[value1]) : dict[value1];
-                i += (dict[value2] > dict[value1])? 2 : 1;
-            } else {
-                sum += dict[value1];
-                i += 1;
-            }
+        if (((i + 1) < len) && ((value2 = roman[i + 1]) !== value1) && (['I', 'X', 'C'].includes(value1)) && (dict[value2] > dict[value1])) {
+            sum += dict[value2] - dict[value1];
+            i += 2
        } else {
-           sum += dict[value1];
-           i += 1;
+            sum += dict[value1];
+            i += 1;
        }
     }
-    //console.log(sum);
     return sum;
 }
 
-//let roman = "CXLIV";
-//romanToDecimal(roman);
 module.exports = romanToDecimal;
